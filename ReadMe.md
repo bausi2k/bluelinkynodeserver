@@ -34,6 +34,7 @@ Before setting up the API server, it's a good idea to use this simple script to 
 
 1. **Create a project directory and change to it** (e.g., `/home/pi/blserver_test` or your main project directory `/home/pi/blserver`).
 Ensure that the file [test-bluelinky.js](test-bluelinky.js) is present in this directory.
+
 ```bash
 # Example:
 # mkdir -p /home/pi/blserver_test
@@ -50,7 +51,7 @@ bash
 npm install bluelinky
 
 
-3.3. Script Code (test-bluelinky.js)
+### 3.3. Script Code (test-bluelinky.js)
 
 The code for this script can be found in the [test-bluelinky.js](test-bluelinky.js) file in this repository.
 
@@ -70,12 +71,12 @@ The script will output various log messages to the console. If successful, you s
 # 4. API Server (bluelinky-server.js)
 If the local test script works successfully, you can set up the API server.
 
-## 4.1. Purpose
+### 4.1. Purpose
 Provides an HTTP API for remote control and status queries of the vehicle.
 Can be configured as a background service for continuous operation.
 Suitable for integration into smart home systems such as Node-RED.
 
-## 4.2. API Server Setup
+### 4.2. API Server Setup
 Ensure that express and bluelinky are installed:
 When you are in the /home/pi/blserver directory (or your chosen directory for the server):
 
@@ -87,7 +88,7 @@ npm install express bluelinky
 Server Script (bluelinky-server.js):
 The code for the API server can be found in the bluelinky-server.js file in this repository. Make sure this file is located in your project directory (/home/pi/blserver).
 
-## 4.3. Credential Configuration File (.env for the Server)
+### 4.3. Credential Configuration File (.env for the Server)
 This file is crucial if the server is running as a systemd service.
 
 Create/edit the file /home/pi/blserver/.env:
@@ -114,7 +115,7 @@ Set permissions:
 
 chmod 600 /home/pi/blserver/.env
 ```
-## 4.4. API Endpoints
+### 4.4. API Endpoints
 You can get an overview of the available endpoints and their descriptions via the /info endpoint of the running server (e.g., http://<IP_YOUR_RASPBERRY_PI>:8080/info). The most important ones are:
 
 ```
@@ -139,7 +140,7 @@ which node
 
 Note the path returned (e.g., /usr/bin/node or /usr/local/bin/node).
 
-### 4.6.2. Create a systemd service unit file
+#### 4.6.2. Create a systemd service unit file
 Create a new service file. You need sudo privileges for this. (Reminder: You prefer vi as your editor.)
 
 ```Bash
@@ -179,7 +180,7 @@ WantedBy=multi-user.target
 
 Ensure that the file /home/pi/blserver/.env (as described in Section 4.3) exists and contains your Bluelink credentials.
 
-### 4.6.3. Inform systemd and manage the service
+#### 4.6.3. Inform systemd and manage the service
 After creating and saving the .service file, run the following commands in the terminal:
 
 Instruct systemd to reload its configuration:
@@ -202,7 +203,7 @@ Start the service manually immediately:
 sudo systemctl start bluelinky-server.service
 ```
 
-### 4.6.4. Check the service status and logs
+#### 4.6.4. Check the service status and logs
 Display the current status of the service:
 
 ```Bash
@@ -214,7 +215,7 @@ View live logs: sudo journalctl -u bluelinky-server.service -f (Quit with Ctrl+C
 Logs since the last boot: sudo journalctl -u bluelinky-server.service -b
 ```
 
-### 4.6.5. Important note on the bluelinky-server.js script for service operation
+#### 4.6.5. Important note on the bluelinky-server.js script for service operation
 The setInterval(...) call at the end of the bluelinky-server.js script helps keep the Node.js process stable and running continuously under systemd.
 
 # 5. Libraries Used / References
