@@ -34,11 +34,12 @@ Before setting up the API server, it's a good idea to use this simple script to 
 
 1. **Create a project directory and change to it** (e.g., `/home/pi/blserver_test` or your main project directory `/home/pi/blserver`).
 Ensure that the file [test-bluelinky.js](test-bluelinky.js) is present in this directory.
-bash
+```bash
 # Example:
 # mkdir -p /home/pi/blserver_test
 # cd /home/pi/blserver_test
 # (Then place the test-bluelinky.js file here)
+```
 
 2. Initialize the Node.js project (if you haven't already):
 bash
@@ -129,11 +130,12 @@ GET /location: Location.
 Set the environment variables in the terminal and start the server:
 ```
 
-` ... Find it with:
+... Find it with:
 
 ```Bash
 
 which node
+```
 
 Note the path returned (e.g., /usr/bin/node or /usr/local/bin/node).
 
@@ -147,7 +149,7 @@ sudo vi /etc/systemd/system/bluelinky-server.service
 
 Insert the following content into this file. Important: In the ExecStart= line, replace /usr/bin/node with the path you determined in step 4.6.1!
 
-Ini, TOML
+```Ini, TOML
 
 [Unit]
 Description=Bluelinky API Server
@@ -173,6 +175,8 @@ StandardError=journal
 
 [Install]
 WantedBy=multi-user.target
+```
+
 Ensure that the file /home/pi/blserver/.env (as described in Section 4.3) exists and contains your Bluelink credentials.
 
 ### 4.6.3. Inform systemd and manage the service
