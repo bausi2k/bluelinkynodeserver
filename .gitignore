@@ -1,0 +1,24 @@
+# Node.js Abhängigkeiten
+# Dieses Verzeichnis enthält alle installierten npm-Pakete und kann sehr groß werden.
+# Es sollte immer ignoriert werden, da die Pakete über "npm install" anhand der
+# package.json und package-lock.json neu installiert werden können.
+node_modules/
+
+# Datei für Umgebungsvariablen
+# Diese Datei enthält sensible Zugangsdaten und sollte niemals versioniert werden!
+.env
+
+# Log-Dateien (optional, aber gute Praxis)
+# Falls dein Skript oder npm Log-Dateien erzeugt.
+*.log
+npm-debug.log*
+yarn-debug.log* # Falls du jemals Yarn verwenden solltest
+yarn-error.log*
+
+# Betriebssystem-spezifische Dateien (optional, aber gute Praxis)
+.DS_Store
+Thumbs.db
+
+# Build-Verzeichnisse (optional, falls du einen Build-Prozess hättest)
+# dist/
+# build/
