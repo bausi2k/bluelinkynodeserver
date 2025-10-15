@@ -11,7 +11,9 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "bluelinky": "^9.1.0",
-    "express": "^5.1.0"
+    "bluelinky": "file:../Kuvork",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "kuvork": "github:PierreLevres/Kuvork"
   }
 }
